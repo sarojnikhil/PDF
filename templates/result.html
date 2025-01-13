@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Cracking Results</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 50px;
+            background-color: #f7f7f7;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .alert {
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .alert-warning {
+            background-color: #ffeeba;
+            color: #856404;
+        }
+        .alert-info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center mb-4">PDF Cracking Results</h2>
+        <p class="text-center lead">This tool attempts to crack passwords from PDF files using various methods including dictionary attack and brute force. The analysis includes text extraction and decryption attempts using multiple algorithms. Please use this tool ethically and responsibly.</p>
+        
+        <div class="alert alert-warning">
+            <strong>Ethical Note:</strong> This is an ethical hacking project. The tool should only be used on your own PDF documents. Unauthorized use on others' documents is illegal and unethical. The purpose of this tool is to educate on password cracking techniques, not for malicious intent.
+        </div>
+
+        {% if password %}
+            <div class="alert alert-success">
+                <h3>Cracked Password:</h3>
+                <p>{{ password }}</p>
+            </div>
+            
+            
+            <div class="\">
+                <h3>Extracted Text:</h3>
+                <pre>{{ text }}</pre>
+                
+                    
+                </div>
+                <h3>Decryption Attempts:</h3>
+                    <ul>
+                        <li>AES: {{ aes }}</li>
+                        <li>DES: {{ des }}</li>
+                        <li>Blowfish: {{ blowfish }}</li>
+                        <li>ChaCha20: {{ chacha20 }}</li>
+                    </ul>
+            </div>
+        {% else %}
+            <p class="text-center text-danger">No password found.</p>
+        {% endif %}
+
+        <div class="text-center mt-4">
+            
+                <h3>Decryption Attempts:</h3>
+                <ul>
+                    <li><strong>AES (Advanced Encryption Standard):</strong> AES is a symmetric encryption algorithm that uses 128-bit, 192-bit, or 256-bit keys to encrypt data. It is widely used for securing data in transit and at rest. This method tries all possible key combinations to decrypt the content.</li>
+                    <li><strong>DES (Data Encryption Standard):</strong> DES is an older symmetric encryption standard using a 56-bit key. It encrypts data in 64-bit blocks. While no longer recommended for modern security standards, it may still be used in legacy systems. The tool attempts to decrypt data by testing all 56-bit keys in a brute-force manner.</li>
+                    <li><strong>Blowfish:</strong> Blowfish is a fast, symmetric encryption algorithm designed to be secure and efficient with key sizes ranging from 32 bits to 448 bits. The tool attempts to crack the PDF password by trying every possible key in a brute-force attack, making it a robust method for securing sensitive information.</li>
+                    <li><strong>ChaCha20:</strong> ChaCha20 is a modern stream cipher designed by Google that offers high speed and security. It is particularly efficient on modern hardware and can handle high-throughput operations effectively. The tool employs brute-force methods to test all possible keys until the correct one is found.</li>
+                </ul>
+                <a href="/" class="btn btn-primary">Go back</a>
+            </div>
+           
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

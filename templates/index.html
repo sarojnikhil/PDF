@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Password Cracker</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 50px;
+            background-color: #f7f7f7;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .alert {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center mb-4">PDF Password Cracker</h2>
+        <p class="text-center lead">This is an ethical hacking project designed to demonstrate password recovery techniques for PDF files. The tool uses various methods including dictionary attacks and brute force to attempt password cracking. Please use this tool responsibly and ethically, only with your own documents.</p>
+        <p class="text-center">How does it work?</p>
+        <ul class="list-unstyled">
+            <li><strong>Step 1:</strong> Upload the encrypted PDF file. This file will be scanned for any password protection.</li>
+            <li><strong>Step 2:</strong> The tool attempts to crack the PDF password using a **dictionary attack**, where a pre-built list of common passwords is checked against the encrypted document. If no matches are found, it proceeds to **brute-force attacks**, systematically trying all possible combinations of characters.</li>
+            <li><strong>Step 3:</strong> If the PDF contains encrypted text, the tool uses different decryption algorithms to attempt to decrypt the content and reveal the original text. These algorithms include **AES (Advanced Encryption Standard)**, **DES (Data Encryption Standard)**, **Blowfish**, and **ChaCha20**.</li>
+        </ul>
+        <p class="alert alert-warning"><strong>Ethical Note:</strong> This is an ethical hacking project. The tool should only be used on your own PDF documents. Unauthorized use on others' documents is illegal and unethical. The purpose of this tool is to educate on password cracking techniques, not for malicious intent.</p>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="file" name="pdf" class="form-control-file" accept=".pdf" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Upload</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
